@@ -1,0 +1,16 @@
+@Controller -> controlar as instâncias, resp. por todos ciclo de vida do objeto.
+ @GetMapping -> sempre que o usuário fizer uma requisição.
+
+ @GetMapping("/new-jedi")
+     public String newJedi(){
+         return "new-jedi";
+     }
+     ao rodar:
+
+        java.lang.IllegalStateException
+
+     pois no template a parte form está associado a um objeto chamado: th:object="${jedi}"
+
+        <form th:action="@{/jedi}" th:object="${jedi}" method="post">
+
+     espera um objeto! portanto para dar certo precisamos retornar o tipo correto no front.
