@@ -2,7 +2,9 @@ package com.globallabs.springwebmvc.controller;
 
 import com.globallabs.springwebmvc.model.Jedi;
 import com.globallabs.springwebmvc.repository.JediRepository;
+import com.globallabs.springwebmvc.service.JediService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,11 +20,13 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-@Controller // intercepta todas requisições, que estão sendo mapeadas, e cada req atende ao template
+//@Controller // intercepta todas requisições, que estão sendo mapeadas, e cada req atende ao template
+@Component// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!alterado!!!!!!!!!!!!!!!!!!!!!!
 public class JediController {
 
     @Autowired
     private JediRepository repository;
+
 
     @GetMapping("/jedi")
     public ModelAndView jedi(){
